@@ -1,4 +1,5 @@
 import './App.css';
+import TaskList from './TaskList';
 
 function App() {
   return (
@@ -7,8 +8,8 @@ function App() {
         <h1 className="main-heading">Team Planning <span>🗓️</span></h1>
         <p>Schedule tasks to be completed by a specific date.</p>
       </header>
-      <main>
-
+      <main className="main-section">
+        <TaskList />
       </main>
     </div>
   );
