@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import './App.css';
+import TaskForm from './taskForm';
 import TaskList from './TaskList';
 
 function App() {
+  const [addTask, setAddTask] = useState(false);
+  const onAddTask = function(e) {
+    e.preventDefault();
+    setAddTask(true);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -9,7 +16,18 @@ function App() {
         <p>Schedule tasks to be completed by a specific date.</p>
       </header>
       <main className="main-section">
-        <TaskList />
+        {!addTask &&
+          <>
+            <TaskList />
+            <div className="task-row">
+              <button className="task-button"
+              onClick={(e) => onAddTask(e)}>Add Item</button>
+            </div>
+          </>
+        }
+        {addTask &&
+          <TaskForm setAddTask={setAddTask}/>
+        }
       </main>
     </div>
   );
