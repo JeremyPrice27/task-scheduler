@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
@@ -16,6 +11,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding:2rem 0;
+}
+
+.App-header h1 {
+  margin:0;
 }
 
 .main-section {
@@ -27,56 +27,37 @@
   background-color:#f3f3f3;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.small {
-  font-size: 0.75rem;
-}
-
-task-table {
-    /* Basic table layout */
-    border-collapse: collapse; /* Merges cell borders into a single, clean border */
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
+.task-table {
+    border-collapse: collapse;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow for depth */
-    width: 100%; /* Make the table responsive to its container width */
+    width: 100%;
 }
 
 .task-table thead tr {
-    /* Header specific styles */
-    background-color: #009879; /* A clean, professional color */
+    background-color: #009879;
     color: #ffffff;
     text-align: left;
 }
 
 .task-table th,
 .task-table td {
-    /* Cell padding for better spacing */
     padding: 12px 15px;
     text-align:left;
 }
 
 .task-table tbody tr {
-    /* Default row border */
     border-bottom: 1px solid #dddddd;
 }
 
 .task-table tbody tr:nth-of-type(even) {
-    /* Zebra striping for improved readability */
     background-color:aliceblue;
 }
 
 .task-table tbody tr:last-of-type {
-    /* A thicker border for the last row to signify the table's end */
     border-bottom: 2px solid #009879;
 }
 
-styled-table tbody tr:hover {
-    /* Hover effect for interactivity and highlighting */
+.task-table tbody tr:hover {
     font-weight: bold;
     color: #009879;
     cursor: pointer;
