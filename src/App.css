@@ -17,15 +17,18 @@
 .App-header h1 {
     margin:0;
 }
+.App-header p {
+    margin:5px 0 0 0;
+}
 
 .main-section {
-    padding-top: 5vh;
-    min-height: 75vh;
-    display:flex;
-    flex-direction: column;
+    min-height: 80vh;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    background-color:#f3f3f3;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+    background-color: #f3f3f3;
 }
 
 /* Add Task */
