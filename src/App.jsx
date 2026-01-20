@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="main-heading">Team Planning <span>🗓️</span></h1>
-        <p>Schedule tasks to be completed by a specific date.</p>
+        <p>Schedule tasks to be completed.</p>
       </header>
       <main className="main-section">
         {!addTask &&
