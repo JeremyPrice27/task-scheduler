@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import TaskForm from './taskForm';
+import TaskForm from './TaskForm';
 import TaskList from './TaskList';
 
 function App() {
