@@ -23,7 +23,8 @@ function TaskForm({setAddTask}) {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
             <label htmlFor="description">Task Description:</label>
-            <textarea
+            <input
+                type="text"
                 id="description"
                 rows={4}
                 cols={30}
