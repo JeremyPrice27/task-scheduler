@@ -15,8 +15,7 @@ function TaskForm({setAddTask}) {
         setAddTask(false);
     };
     const onSubmit = function(data) {
-        const id = taskListData.length;
-        dispatch(setTaskListItem({...data, id})).then(() => {
+        dispatch(setTaskListItem(data)).then(() => {
             setAddTask(false);
         });
     };
