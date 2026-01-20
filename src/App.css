@@ -36,7 +36,7 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content:left;
+    justify-content: center;
 }
 
 .task-button {
@@ -109,7 +109,7 @@ label {
 }
 
 input[type="date"],
-textarea {
+input[type="text"] {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
