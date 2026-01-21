@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="main-heading">Team Planning <span>🗓️</span></h1>
+        <h1 className="main-heading">Task Scheduling <span>🗓️</span></h1>
         <p>Schedule tasks to be completed.</p>
       </header>
       <main className="main-section">
