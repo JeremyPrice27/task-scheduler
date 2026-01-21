@@ -1,13 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { completeTask, removeTask, selectTaskList } from "./taskList";
-function TaskList() {
+import { completeTask, removeTask, reopenTask, selectTaskList } from "./taskList";
+function TaskList({setAddTask, setCurrentTask}) {
     const dispatch = useDispatch();
     const taskListData = useSelector(selectTaskList);
     const onCompleteTask = function(id) {
         dispatch(completeTask(id));
     };
+    const onReopen = function(id) {
+        dispatch(reopenTask(id));
+    };
     const onRemoveTask = function(id) {
         dispatch(removeTask(id));
+    };
+    const onEdit = function(id) {
+        setAddTask(true);
+        const task = taskListData.find(task => task.id === id);
+        setCurrentTask(task);
     };
     return (
         <>
@@ -22,13 +30,17 @@ function TaskList() {
                 <th>Description</th>
                 <th>Due Date</th>
                 <th>Completed</th>
-                <th>Action</th>
+                <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {taskListData.map((task) => (
                 <tr key={task.id}>
-                    <td>{task.description}</td>
+                    <td>{task.description}
+                        <button
+                        className="action-button small"
+                        type="button"
+                        aria-label="Edit item" onClick={() => onEdit(task.id)}>Edit ✏️</button></td>
                     <td>{task.dueDate}</td>
                     <td>
                         {task.completed &&
@@ -39,12 +51,13 @@ function TaskList() {
                         }
                     </td>
                     <td>
-                        {task.completed &&
-                        <button className="action-button" onClick={() => onRemoveTask(task.id)}>Remove</button>
-                        }
                         {!task.completed &&
                         <button className="action-button complete" onClick={() => onCompleteTask(task.id)}>Complete</button>
                         }
+                        {task.completed &&
+                        <button className="action-button reopen" onClick={() => onReopen(task.id)}>Reopen</button>
+                        }
+                        <button className="action-button" onClick={() => onRemoveTask(task.id)}>Remove</button>
                     </td>
                 </tr>
                 ))}

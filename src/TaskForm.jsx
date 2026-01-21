@@ -1,20 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { selectTaskList, setTaskListItem } from "./taskList";
 
-function TaskForm({setAddTask}) {
+function TaskForm({setAddTask, currentTask, setCurrentTask}) {
     const dispatch = useDispatch();
     const taskListData = useSelector(selectTaskList);
     const {
         handleSubmit,
         register,
     } = useForm({
+        values: currentTask ? {
+            description: currentTask.description,
+            dueDate: currentTask.dueDate,
+        } : {},
         mode: 'onChange',
     });
     const onCancel = function() {
         setAddTask(false);
+        setCurrentTask(null);
     };
     const onSubmit = function(data) {
+        if (currentTask) {
+            data.id = currentTask.id;
+        }
         dispatch(setTaskListItem(data)).then(() => {
             setAddTask(false);
         });
@@ -42,7 +50,8 @@ function TaskForm({setAddTask}) {
             />
             </div>
             <div className="task-row">
-                <button className="task-button" type="submit">Add Task</button>
+                {currentTask && <button className="task-button" type="submit">Update Task</button>}
+                {!currentTask && <button className="task-button" type="submit">Add Task</button>}
                 <button className="task-button" onClick={onCancel}>Cancel</button>
             </div>
         </form>

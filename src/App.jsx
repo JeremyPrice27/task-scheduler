@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import './App.css';
-import TaskForm from './TaskForm';
-import TaskList from './TaskList';
+import TaskForm from './TaskForm.jsx';
+import TaskList from './TaskList.jsx';
 
 function App() {
   const [addTask, setAddTask] = useState(false);
+  const [currentTask, setCurrentTask] = useState(null);
   const onAddTask = function(e) {
     e.preventDefault();
     setAddTask(true);
+    setCurrentTask(null);
   };
   return (
     <div className="App">
@@ -18,7 +20,7 @@ function App() {
       <main className="main-section">
         {!addTask &&
           <>
-            <TaskList />
+            <TaskList setAddTask={setAddTask} setCurrentTask={setCurrentTask}/>
             <div className="task-row">
               <button className="task-button"
               onClick={(e) => onAddTask(e)}>Add Item</button>
@@ -26,7 +28,7 @@ function App() {
           </>
         }
         {addTask &&
-          <TaskForm setAddTask={setAddTask}/>
+          <TaskForm setAddTask={setAddTask} currentTask={currentTask} setCurrentTask={setCurrentTask}/>
         }
       </main>
     </div>

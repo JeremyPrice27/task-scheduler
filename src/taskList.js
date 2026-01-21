@@ -6,6 +6,7 @@ const initialState = {
         { id: '001', description: 'Import React hooks', dueDate: '2025-02-15', completed: true },
         { id: '002', description: 'Build a task table component', dueDate: '2025-03-01', completed: true },
         { id: '003', description: 'Refactor CSS to SASS', dueDate: '2025-03-10', completed: false },
+        { id: '004', description: 'Refactor Slices', dueDate: '2025-01-07', completed: false },
     ],
     status: 'idle',
     error: null,
@@ -17,11 +18,16 @@ const taskListSlice = createSlice({
     reducers: {
         setData: {
             reducer(state, action) {
-                state.data.push(action.payload);
-            },
-            prepare(payload) {
-                const id = uuidv4();
-                return { payload: { ...payload, id } }
+                if (action.payload.id) {
+                    const index = state.data.findIndex(task => task.id === action.payload.id);
+                    if (index !== -1) {
+                        state.data[index] = action.payload;
+                        return;
+                    }
+                } else {
+                    action.payload.id = uuidv4();
+                    state.data.push(action.payload);
+                }
             }
         },
         removeTask(state, action) {
@@ -36,6 +42,12 @@ const taskListSlice = createSlice({
             if (task) {
                 task.completed = true;
             }
+        },
+        reopenTask(state, action) {
+            const task = state.data.find(task => task.id === action.payload);
+            if (task) {
+                task.completed = false;
+            }
         }
     }
 });
@@ -47,8 +59,16 @@ export const setTaskListItem = createAsyncThunk(
     }
 );
 
-export const selectTaskList = ({ taskList }) => taskList.data;
+export const selectTaskList = ({ taskList }) => {
+    const sortedTasks = [...taskList.data]; 
+    
+    sortedTasks.sort((a, b) => {
+      return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+    });
 
-export const { completeTask, removeTask, setData } = taskListSlice.actions;
+    return sortedTasks
+};
+
+export const { completeTask, removeTask, reopenTask, setData } = taskListSlice.actions;
 
 export default taskListSlice.reducer;

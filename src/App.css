@@ -61,6 +61,7 @@
 .action-button {
     display: inline-block;
     padding: 6px 12px;
+    margin: 0 6px 0 0;
     font-size: 12px;
     font-weight: 500;
     text-align: center;
@@ -75,6 +76,16 @@
 
 .action-button.complete {
     background-color:#03614e;
+}
+.action-button.reopen {
+    background-color:#007bff;
+}
+.action-button.small {
+    padding: 3px 6px;
+    margin: 0 6px 0 0;
+    font-size: 10px;
+    background-color:#282c34;
+    float:right;
 }
 
 .task-button:hover {
@@ -157,7 +168,7 @@ textarea:focus {
 }
 
 .task-table tbody tr:nth-of-type(even) {
-    background-color:aliceblue;
+    background-color:#ffffff;
 }
 
 .task-table tbody tr:last-of-type {
@@ -165,7 +176,7 @@ textarea:focus {
 }
 
 .task-table tbody tr:hover {
-    color: #009879;
+    background-color: beige;
     cursor: pointer;
 }
 .completed {
