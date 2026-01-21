@@ -18,6 +18,12 @@ function App() {
         <p>Schedule tasks to be completed.</p>
       </header>
       <main className="main-section">
+        <div className="task-description">
+            <p>A Task Scheduling application built by Jeremy Price to
+                demonstrate skills in React, Redux ToolKit and React Hook Form.</p>
+            <p>See the <a target="_blank"
+            href="https://github.com/JeremyPrice27/task-scheduler">Repository</a> to
+            view the code.</p></div>
         {!addTask &&
           <>
             <TaskList setAddTask={setAddTask} setCurrentTask={setCurrentTask}/>
