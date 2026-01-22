@@ -38,6 +38,7 @@ a {
 
 .task-description {
     max-width: 900px;
+    padding: 0 10px;
     margin: 1rem 0
 }
 
@@ -202,7 +203,6 @@ textarea:focus {
   }
   .task-table td {
     padding-left: 30%;
-    text-align: right;
     position: relative;
   }
   td::before {
