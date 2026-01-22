@@ -27,22 +27,22 @@ function TaskList({setAddTask, setCurrentTask}) {
             <table className="task-table">
             <thead>
                 <tr>
-                <th data-label="Description">Description</th>
-                <th data-label="Due Date">Due Date</th>
-                <th data-label="Completed">Completed</th>
-                <th data-label="Action">Action</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Completed</th>
+                <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {taskListData.map((task) => (
                 <tr key={task.id}>
-                    <td>{task.description}
+                    <td data-label="Description">{task.description}
                         <button
                         className="action-button small"
                         type="button"
                         aria-label="Edit item" onClick={() => onEdit(task.id)}>Edit ✏️</button></td>
-                    <td>{task.dueDate}</td>
-                    <td>
+                    <td data-label="Due Date">{task.dueDate}</td>
+                    <td data-label="Completed">
                         {task.completed &&
                         <span className="completed">Yes</span>
                         }
@@ -50,7 +50,7 @@ function TaskList({setAddTask, setCurrentTask}) {
                         <span>No</span>
                         }
                     </td>
-                    <td>
+                    <td data-label="Action">
                         {!task.completed &&
                         <button className="action-button complete" onClick={() => onCompleteTask(task.id)}>Complete</button>
                         }
