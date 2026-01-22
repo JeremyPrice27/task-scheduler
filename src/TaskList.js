@@ -14,10 +14,10 @@ function TaskList() {
             <table className="task-table">
             <thead>
                 <tr>
-                <th>Description</th>
-                <th>Due Date</th>
-                <th>Completed</th>
-                <th>Action</th>
+                <th data-label="Description">Description</th>
+                <th data-label="Due Date">Due Date</th>
+                <th data-label="Completed">Completed</th>
+                <th data-label="Action">Action</th>
                 </tr>
             </thead>
             <tbody>
