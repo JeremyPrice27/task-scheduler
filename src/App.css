@@ -191,25 +191,25 @@ textarea:focus {
     font-weight: 800;
 }
 @media screen and (max-width: 600px) {
+  tbody {
+      border-top: 2px solid #009879;
+  }
   table, thead, tbody, th, td, tr {
     display: block;
   }
-
   thead tr {
     display: none;
   }
-
-  td {
-    padding-left: 50%;
+  .task-table td {
+    padding-left: 30%;
     text-align: right;
     position: relative;
   }
-
   td::before {
     content: attr(data-label);
     position: absolute;
     left: 10px;
-    width: 45%;
+    width: 25%;
     text-align: left;
     font-weight: bold;
   }
