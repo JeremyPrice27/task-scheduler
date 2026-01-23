@@ -131,10 +131,8 @@ input[type="text"] {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 input[type="text"]:focus,
-textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-  outline: none;
+input::-webkit-date-and-time-value {
+    text-align: left;
 }
 
 /* Task List table */

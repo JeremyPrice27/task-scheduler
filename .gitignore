@@ -108,6 +108,9 @@ typings/
 /.pnp
 .pnp.js
 
+#dev
+/dist
+
 # testing
 /coverage
 
