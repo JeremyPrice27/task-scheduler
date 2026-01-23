@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { newStore } from './store';
 import App from './App';
 
-let store = newStore();
+const store = newStore();
 
 test('renders app, content, and data', () => {
   render(
@@ -12,7 +12,7 @@ test('renders app, content, and data', () => {
         <App></App>
       </Provider>
   );
-  const headline = screen.getByText('Team Planning');
+  const headline = screen.getByText('Task Scheduling');
   expect(headline).toBeDefined();
 
   const addItemButton = screen.getByText('Add Item');

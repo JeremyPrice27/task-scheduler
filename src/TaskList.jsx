@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { completeTask, removeTask, reopenTask, selectTaskList } from "./taskList";
+
 function TaskList({setAddTask, setCurrentTask}) {
     const dispatch = useDispatch();
     const taskListData = useSelector(selectTaskList);
@@ -40,7 +41,9 @@ function TaskList({setAddTask, setCurrentTask}) {
                         <button
                         className="action-button small"
                         type="button"
-                        aria-label="Edit item" onClick={() => onEdit(task.id)}>Edit ✏️</button></td>
+                        aria-label="Edit item"
+                        onClick={() => onEdit(task.id)}>Edit ✏️</button>
+                    </td>
                     <td data-label="Due Date">{task.dueDate}</td>
                     <td data-label="Completed">
                         {task.completed &&
@@ -52,12 +55,15 @@ function TaskList({setAddTask, setCurrentTask}) {
                     </td>
                     <td data-label="Action">
                         {!task.completed &&
-                        <button className="action-button complete" onClick={() => onCompleteTask(task.id)}>Complete</button>
+                        <button className="action-button complete"
+                        onClick={() => onCompleteTask(task.id)}>Complete</button>
                         }
                         {task.completed &&
-                        <button className="action-button reopen" onClick={() => onReopen(task.id)}>Reopen</button>
+                        <button className="action-button reopen"
+                        onClick={() => onReopen(task.id)}>Reopen</button>
                         }
-                        <button className="action-button" onClick={() => onRemoveTask(task.id)}>Remove</button>
+                        <button className="action-button"
+                        onClick={() => onRemoveTask(task.id)}>Remove</button>
                     </td>
                 </tr>
                 ))}

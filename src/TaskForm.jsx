@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import { set, useForm } from "react-hook-form";
-import { selectTaskList, setTaskListItem } from "./taskList";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { setTaskListItem } from "./taskList";
 
 function TaskForm({setAddTask, currentTask, setCurrentTask}) {
     const dispatch = useDispatch();
-    const taskListData = useSelector(selectTaskList);
     const {
         handleSubmit,
         register,
@@ -34,8 +33,8 @@ function TaskForm({setAddTask, currentTask, setCurrentTask}) {
             <input
                 type="text"
                 id="description"
-                rows={4}
-                cols={30}
+                minLength={4}
+                maxLength={25}
                 required
                 {...register('description')}
             />
