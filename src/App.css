@@ -120,9 +120,11 @@ label {
 }
 input[type="date"],
 input[type="text"] {
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   font-size: 16px;
-  text-align: left;
+  text-align: center;
   padding: 0.75rem;
   color: #282c34;
   background:#fff;
@@ -130,10 +132,6 @@ input[type="text"] {
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-input[type="text"]:focus,
-input::-webkit-date-and-time-value {
-    text-align: left;
 }
 
 /* Task List table */
