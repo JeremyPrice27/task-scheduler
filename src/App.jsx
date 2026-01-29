@@ -6,10 +6,18 @@ import TaskList from './TaskList.jsx';
 function App() {
   const [addTask, setAddTask] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
+  const scrollTop = function() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
   const onAddTask = function(e) {
     e.preventDefault();
     setAddTask(true);
     setCurrentTask(null);
+    scrollTop();
   };
   return (
     <div className="App">
@@ -26,7 +34,7 @@ function App() {
             view the code.</p></div>
         {!addTask &&
           <>
-            <TaskList setAddTask={setAddTask} setCurrentTask={setCurrentTask}/>
+            <TaskList scrollTop={scrollTop} setAddTask={setAddTask} setCurrentTask={setCurrentTask}/>
             <div className="task-row">
               <button className="task-button"
               onClick={(e) => onAddTask(e)}>Add Item</button>
