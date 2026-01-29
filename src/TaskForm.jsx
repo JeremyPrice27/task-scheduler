@@ -34,7 +34,7 @@ function TaskForm({setAddTask, currentTask, setCurrentTask}) {
                 type="text"
                 id="description"
                 minLength={4}
-                maxLength={25}
+                maxLength={60}
                 required
                 {...register('description')}
             />
