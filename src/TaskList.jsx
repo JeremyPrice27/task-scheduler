@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { completeTask, removeTask, reopenTask, selectTaskList } from "./taskList";
 
-function TaskList({setAddTask, setCurrentTask}) {
+function TaskList({ scrollTop, setAddTask, setCurrentTask }) {
     const dispatch = useDispatch();
     const taskListData = useSelector(selectTaskList);
     const onCompleteTask = function(id) {
@@ -17,6 +17,7 @@ function TaskList({setAddTask, setCurrentTask}) {
         setAddTask(true);
         const task = taskListData.find(task => task.id === id);
         setCurrentTask(task);
+        scrollTop();
     };
     return (
         <>
