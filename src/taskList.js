@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
@@ -59,15 +59,16 @@ export const setTaskListItem = createAsyncThunk(
     }
 );
 
-export const selectTaskList = ({ taskList }) => {
-    const sortedTasks = [...taskList.data]; 
-    
-    sortedTasks.sort((a, b) => {
-      return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
-    });
-
-    return sortedTasks
-};
+export const selectTaskList = createSelector(
+    (state) => state.taskList.data,
+    (taskListData) => {
+        const sortedTasks = [...taskListData];
+        sortedTasks.sort((a, b) => {
+            return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+        });
+        return sortedTasks;
+    }
+  )
 
 export const { completeTask, removeTask, reopenTask, setData } = taskListSlice.actions;
 

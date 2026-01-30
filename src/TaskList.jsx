@@ -38,13 +38,7 @@ function TaskList({ scrollTop, setAddTask, setCurrentTask }) {
             <tbody>
                 {taskListData.map((task) => (
                 <tr key={task.id}>
-                    <td data-label="Description">{task.description}
-                        <button
-                        className="action-button small"
-                        type="button"
-                        aria-label="Edit item"
-                        onClick={() => onEdit(task.id)}>Edit ✏️</button>
-                    </td>
+                    <td data-label="Description">{task.description}</td>
                     <td data-label="Due Date">{task.dueDate}</td>
                     <td data-label="Completed">
                         {task.completed &&
@@ -63,8 +57,8 @@ function TaskList({ scrollTop, setAddTask, setCurrentTask }) {
                         <button className="action-button reopen"
                         onClick={() => onReopen(task.id)}>Reopen</button>
                         }
-                        <button className="action-button"
-                        onClick={() => onRemoveTask(task.id)}>Remove</button>
+                        <a className="action-anchor" onClick={() => onEdit(task.id)}>Edit</a>
+                        <a className="action-anchor" onClick={() => onRemoveTask(task.id)}>Remove</a>
                     </td>
                 </tr>
                 ))}

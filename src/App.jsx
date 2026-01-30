@@ -37,7 +37,7 @@ function App() {
             <TaskList scrollTop={scrollTop} setAddTask={setAddTask} setCurrentTask={setCurrentTask}/>
             <div className="task-row">
               <button className="task-button"
-              onClick={(e) => onAddTask(e)}>Add Item</button>
+              onClick={(e) => onAddTask(e)}>Add Task</button>
             </div>
           </>
         }

@@ -65,7 +65,8 @@ a {
     display: inline-block;
     padding: 6px 12px;
     margin: 0 6px 0 0;
-    font-size: 12px;
+    min-width:100px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
     text-decoration: none;
@@ -76,18 +77,19 @@ a {
     border-radius: 4px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
+.action-anchor {
+    margin:0 10px;
+    text-decoration: underline;
+}
+.action-anchor:hover {
+    color:#282c34;
+    cursor:pointer;
+}
 .action-button.complete {
     background-color:#03614e;
 }
 .action-button.reopen {
     background-color:#007bff;
-}
-.action-button.small {
-    padding: 3px 6px;
-    margin: 0 6px 0 0;
-    font-size: 10px;
-    background-color:#282c34;
-    float:right;
 }
 .task-button:hover {
     background-color: #03614e;
@@ -102,15 +104,22 @@ a {
 
 /* Task Form */
 .task-form {
-    max-width: 400px;
+    max-width: 550px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
 .form-group {
-    margin-bottom: 1.5rem;
+    width:90%;
+    max-width:550px;
 }
 label {
     display: block;
@@ -133,6 +142,12 @@ input[type="text"] {
     border-radius: 4px;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.error-container {
+    height:20px;
+}
+.error-message {
+    color: rgb(195, 26, 26);
 }
 
 /* Task List table */
@@ -166,7 +181,6 @@ input[type="text"] {
 }
 .task-table tbody tr:hover {
     background-color: beige;
-    cursor: pointer;
 }
 .completed {
     color: #009879;
